@@ -1,0 +1,110 @@
+\documentclass[11pt,spanish]{exam}
+
+%codigo del curso en minusculas (fmm001)
+%campus con primeras 4 letras (repu,caso,vina,conc,avar,leon,bell)
+\usepackage[fms171,repu,borrador]{mat-unab}
+
+% Los siguientes comandos pueden ser alterados de acuerdo a cada evaluacion.
+\newcommand{\evaluacion}{Solemne 1}
+%\newcommand{\evaluacion}{Solemne 1 - Forma A}
+\newcommand{\fecha}{1 de septiembre de 2017}
+\newcommand{\duracion}{80} % en minutos
+
+
+\begin{document}
+
+%% Genera el titulo de la prueba, tiempo, y consultas
+\thetitle
+
+%% Activar \small en caso de que se exceda una pagina
+%\small
+
+\begin{questions}
+
+%%% Cada problema se inicia con "\question". Es un equivalente a \item del ambiente "enumerate"
+\question
+La glicemia es la medida de concentración de glucosa libre en la sangre de las personas y se sabe que, históricamente, se distribuye normal con media 90 mg/dL y varianza 169 (mg/dL)$^2$. Se tomó una muestra aleatoria de pacientes de un laboratorio, donde se obtuvo lo siguiente:
+\begin{center}
+\begin{tabular}{cc}
+\toprule
+Glicemia (mg/dL) & N\no\ de Pacientes \\
+\midrule
+68 - 78 & 6 \\ 
+78 - 88 & 13 \\
+88 - 98 & 18 \\
+98 - 108 & 11 \\
+108 - 118 & 8 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%%% Un ambiente para preguntas con varias partes. Cada parte se inicia con el comando "\part[PTJE]" donde PTJE es el numero ENTERO de puntos asociados a esta parte. Se pueden asignar medios puntos usando "\half", por ejemplo, "1\half" genera 1,5 puntos Si es necesario hacer subpartes se puede usar el ambiente \begin{subparts} \subpart ... \end{subparts}. Ver la documentacion de la clase "exam" para mas detalles.
+\begin{parts}
+ 	\part[10] Las autoridades del Ministerio de Salud tienen la sospecha que el valor promedio de glicemia ha aumentado, pero ha disminuido la variabilidad. ¿Qué puede indicar usted al respecto? Justifique su respuesta con las medidas descriptivas adecuadas.
+
+\part[5] Históricamente, la variabilidad porcentual de la glicemia ha sido del 20\%. ¿La muestra obtenida es más o menos homogénea que el registro histórico? Justifique estadísticamente su respuesta.
+
+\part[10] Las personas con glicemia sobre 100, serán parte de un tratamiento experimental. ¿Qué porcentaje de pacientes de este estudio serán parte del tratamiento experimental?
+
+\part[5] ¿Qué porcentaje de los pacientes está bajo el valor de la media?
+\end{parts}
+
+\bigskip
+
+\question
+Suponga que se quiere establecer un paralelo entre el pH y la actividad específica de cierta enzima. Se dispone de los siguientes datos, obtenidos de una muestra:
+
+\begin{center}
+\begin{tabular}{c|ccccccc}
+\toprule
+pH & 6 & 6,3 & 7 & 7,2 & 7,4 & 8 & 8,5 \\
+\hline
+\specialcell{Actividad específica \\ (U/mg de proteína)} & 0,95 & 0,92 & 0,88 & 0,85 & 0,78 & 0,7 & 0,64 \\
+\bottomrule
+\end{tabular}\\[2ex]
+
+\begin{tabular}{cc}
+\toprule
+pH ($X$) & Actividad Específica ($Y$) \\
+\midrule
+Media = $7,2$ & Media = $0,81714$ \\
+Desviación estándar = $0,88129$ & Desviación estándar = $0,11528$ \\
+Rango de medición: $6$ a $8,5$ & Rango de medición: $0,64$ a $0,95$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+$$
+\sum_{i=1}^7 x_i^2 = 367,54 \qquad  \sum_{i=1}^7 y_i^2 = 4,7538 \qquad \sum_{i=1}^7 x_iy_i =  40,588
+$$
+
+
+\otrapagina
+\begin{center}
+\includegraphics[width=0.9\textwidth]{s1pic01}
+\end{center}
+\begin{parts}
+\part[10] A simple vista, se aprecia que a mayor pH, la actividad tiende a disminuir. ¿Podría afirmar dicha asociación entre ambas variables? Justifique su respuesta con la medida descriptiva adecuada.
+
+\part[5] ¿Cuál es la magnitud de dicha asociación?
+
+\part[5] Calcule e interprete el valor del estimador de la pendiente, para un modelo de asociación lineal entre las variables $X=$ pH e $Y=$ Actividad Específica.
+
+\part[10] Estime la Actividad específica cuando el pH es de 7,8. ¿Qué tan buena es la estimación entregada?
+\end{parts}
+
+
+%%% Diversas preguntas del problema
+% \begin{parts}
+% 	\part[]
+% 	\part[]
+% 	\part[]
+% \end{parts}
+
+\end{questions}
+\end{document}
+
+
+
+
+
+
