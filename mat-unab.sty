@@ -1,0 +1,305 @@
+% Este paquete provee un macro para pruebas del Departamento de Matematicas 
+% de la Universidad Andres Bello. 
+%
+% Escrito por Dr. Mauricio Duarte
+% Su uso y distribución debe hacerse bajo GNU General Public License, para esta y toda version futura
+%  
+
+
+% Declare that this style file requires at least LaTeX version 2e.
+\NeedsTeXFormat{LaTeX2e}
+
+% Provide the name of your page, the date it was last updated, and a comment about what it's used for
+\ProvidesPackage{mat-unab}[2017/08/25]
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage[mathcal]{euscript}
+\usepackage{bigstrut}
+\usepackage{booktabs}
+
+\usepackage{fixltx2e}
+
+\usepackage{graphicx}
+\usepackage{pstricks}
+\usepackage{pst-func,pstricks-add}
+\usepackage{pst-plot}
+
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{multirow}
+
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{ragged2e}
+
+%% Thick line for tabular
+\makeatletter
+\newcommand{\thickhline}{%
+    \noalign {\ifnum 0=`}\fi \hrule height 1pt
+    \futurelet \reserved@a \@xhline
+}
+
+
+%% Special centered paragraph in tabular
+%% #1 is vertical alignment, #2 is the text
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}} #2 \end{tabular}}
+
+
+% Letras Comunes
+\newcommand{\e}{\varepsilon}   %epsilon
+\newcommand{\ow}{\omega}
+\newcommand{\RR}{\mathbb{R}}    %conjunto numeros reales
+\newcommand{\CC}{\mathbb{C}}    %conjunto numeros complejos
+\newcommand{\HH}{\mathbb{H}}    %semiplano superior
+\newcommand{\ind}{\mathbbm{1}} %vector de unos
+\newcommand{\A}{\mathcal{A}}    %algebra
+\newcommand{\B}{\mathcal{B}}    %sigma-algebra
+\newcommand{\BB}{\mathbb{B}}
+\newcommand{\C}{\mathcal{C}}    %funciones continuo-diferenciables
+\newcommand{\DD}{\mathbb{D}}
+\newcommand{\E}{\mathcal{E}}    %espacio
+\newcommand{\F}{\mathcal{F}}    %filtracion
+\newcommand{\G}{\mathcal{G}} 
+\newcommand{\I}{\mathcal{I}}    %
+\renewcommand{\H}{\mathcal{H}}    %
+\newcommand{\h}{\mathbf{H}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\M}{\mathcal{M}}    %
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\renewcommand{\O}{\Omega}    %
+\renewcommand{\o}{$^\circ\ $}    %
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\R}{\mathcal{R}}
+\renewcommand{\S}{\mathcal{S}}
+\renewcommand{\SS}{\mathbb{S}}
+\newcommand{\PP}{\mathbb{P}}    % probabilidad
+\newcommand{\EE}{\mathbb{E}}     %esperanza variable aleatoria
+\newcommand{\KK}{\mathbb{K}}     %cuerpo
+\newcommand{\N}{\mathcal{N}}   %vecindad de un punto
+\newcommand{\T}{\mathcal{T}}   %Topologia
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\Y}{\mathcal{Y}}
+
+\newcommand{\supp}[1]{\mathrm{supp}\rpar{#1}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\df}{\stackrel{\mathrm{def}}=}
+
+\newcommand{\ud}{\mathrm{d}}    %diferencial
+\newcommand{\sub}{\subseteq}    %subconjunto
+\newcommand{\dive}{\mathrm{div} } %divergence
+\newcommand{\eqd}{\ {\buildrel d \over =}\ } %equal in distribution
+
+%Simbolos Matematicos
+\newcommand{\To}{\Rightarrow}           %implica
+\newcommand{\ssi}{\Leftrightarrow}      %si y solo si
+\newcommand{\subc}{\subseteq}           %subconjuntos
+\newcommand{\tq}{\ \mid \ }             %tal que
+\providecommand{\fl}{\longrightarrow}       %flecha de limite
+\newcommand{\img}{\operatorname{Im}}    %imagen
+
+%Definici'on de Funciones
+\newcommand{\func}[3]{$#1: #2 \rightarrow #3$}  %definiendo la funcion
+
+%Diversos Parentesis
+\providecommand{\rpar}[1]{\left( #1 \right)}               %parentesis()
+\providecommand{\kpar}[1]{\left\{ #1 \right\}}              %parentesis{}
+\providecommand{\spar}[1]{\left[  #1 \right]}              %parentesis[]
+\providecommand{\ppar}[1]{\left\langle #1 \right\rangle}     %parentesis <>
+\providecommand{\abs}[1]{\left\vert #1 \right\vert}           %valor absoluto
+\providecommand{\norm}[1]{\left\Vert #1 \right\Vert}          %norma
+
+%Derivadas
+\providecommand{\dd}[2] {\frac{d #1 }{d #2}}            % derivada de #1 c/r a #2
+\providecommand{\pd}[2] {\frac{\partial #1} {\partial #2}}  % derivada parcial de #1 c/r a #2
+
+\numberwithin{equation}{section}
+
+\theoremstyle{plain}% default
+\newtheorem{thm}{\bf Theorem}[section]
+\newtheorem{lem}[thm]{\bf Lemma}
+\newtheorem{prop}[thm]{\bf Proposition}
+\newtheorem{cor}[thm]{\bf Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defi}{\bf Definition}[section]
+\newtheorem{conj}{\bf Conjecture}[section]
+\newtheorem{examp}{\bf Example}[section]
+\newtheorem{supo}{\bf Assumption}[section]
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+
+
+\renewcommand{\sp}[1]{\mathrm{supp}\rpar{#1}}
+\newcommand{\dist}[1]{\mathrm{dist}\rpar{#1}}
+
+\newcommand{\Log}{\mathrm{Log}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\calificacion}[1]{\fbox{\parbox{0.25\textwidth}{\smallskip{\textbf{Nota:}} \begin{rm}\\ #1 \end{rm} \bigskip} }}
+
+\newcommand{\no}{$^\circ$}
+\newcommand{\celsius}{\no{C}}
+\newcommand{\otrapagina}{\vfill{\it Continúa al reverso}}
+
+
+\newcommand{\notaeximicion}{4,95}
+
+\newcommand{\pauta}{}
+\ifprintanswers
+	\renewcommand{\pauta}{Pauta\ }%
+\fi
+
+%%%%%%%%%%%% margenes y estilo
+\topmargin=0cm  	% MacBook
+\oddsidemargin=-0.5cm \evensidemargin=-0.5cm \textwidth=17.5cm \textheight=22cm 
+\parindent 0em
+\parskip 2ex
+\renewcommand{\baselinestretch}{1,1}
+
+\renewcommand{\solutiontitle}{\noindent\textbf{Soluci\'on:}\enspace}
+\pointpoints{pto}{pts}
+\hpword{Puntos: }
+\vpword{Puntos}
+\htword{Total}
+\vtword{Total:}
+\vsword{Puntuación}
+
+\newcommand{\pts}[1]{\text{\textcolor{red}{(#1 pts)}}}
+
+\usepackage{background}
+\backgroundsetup{contents={}}
+%Opcion para borrador
+\DeclareOption{borrador}{ 
+\backgroundsetup{
+  position = current page.west,
+  angle = 90,
+  vshift = -4mm,
+%    opacity=1,
+  scale=4,
+  contents=Borrador
+}}
+%Opciones para Codigos y Cursos
+\DeclareOption{fms071}{\newcommand{\code}{FMS071}\newcommand{\name}{Estad\'istica Descriptiva}}
+\DeclareOption{fms072}{\newcommand{\code}{FMS072}\newcommand{\name}{Estad\'istica I}}
+\DeclareOption{fms073}{\newcommand{\code}{FMS073}\newcommand{\name}{Estad\'istica II}}
+\DeclareOption{fms171}{\newcommand{\code}{FMS171}\newcommand{\name}{Estad\'istica Aplicada}}
+\DeclareOption{fms175}{\newcommand{\code}{FMS175}\newcommand{\name}{Probabilidades y Estad\'istica}}
+\DeclareOption{fms176}{\newcommand{\code}{FMS176}\newcommand{\name}{Probabilidades y Estad\'istica}}
+
+\DeclareOption{fmsp173}{\newcommand{\code}{FMSP173}\newcommand{\name}{Estadística para Administración}}
+\DeclareOption{fmsp174}{\newcommand{\code}{FMSP174}\newcommand{\name}{Estadística}}
+\DeclareOption{fmsp176}{\newcommand{\code}{FMSP176}\newcommand{\name}{Probabilidades y Estad\'istica}}
+
+\DeclareOption{fmm004}{\newcommand{\code}{FMM004}\newcommand{\name}{Matemática}}
+\DeclareOption{fmm007}{\newcommand{\code}{FMM007}\newcommand{\name}{Matemática Avanzada }}
+\DeclareOption{fmm010}{\newcommand{\code}{FMM010}\newcommand{\name}{Álgebra}}
+\DeclareOption{fmm012}{\newcommand{\code}{FMM012}\newcommand{\name}{Intro. a las Matemáticas}}
+\DeclareOption{fmm013}{\newcommand{\code}{FMM013}\newcommand{\name}{Álgebra}}
+\DeclareOption{fmm032}{\newcommand{\code}{FMM032}\newcommand{\name}{Elem. de Álgebra y Cálculo elem.}}
+\DeclareOption{fmm033}{\newcommand{\code}{FMM033}\newcommand{\name}{Cálculo I}}
+
+\DeclareOption{fmm112}{\newcommand{\code}{FMM112}\newcommand{\name}{Cálculo Diferencial}}
+\DeclareOption{fmm113}{\newcommand{\code}{FMM113}\newcommand{\name}{\'Algebra Lineal}}
+\DeclareOption{fmm132}{\newcommand{\code}{FMM132}\newcommand{\name}{Cálculo Avanzado}}
+\DeclareOption{fmm133}{\newcommand{\code}{FMM133}\newcommand{\name}{Cálculo II}}
+\DeclareOption{fmm134}{\newcommand{\code}{FMM134}\newcommand{\name}{Cálculo Aplicado}}
+\DeclareOption{fmm212}{\newcommand{\code}{FMM212}\newcommand{\name}{Cálculo Integral}}
+\DeclareOption{fmm235}{\newcommand{\code}{FMM235}\newcommand{\name}{Cálculo en Varias Variables}}
+\DeclareOption{fmm251}{\newcommand{\code}{FMM251}\newcommand{\name}{Intro. a las Ecuaciones Diferenciales}}
+\DeclareOption{fmm254}{\newcommand{\code}{FMM254}\newcommand{\name}{Ecuaciones Diferenciales}}
+\DeclareOption{fmm312}{\newcommand{\code}{FMM312}\newcommand{\name}{Sistem. y Ecuac. Diferen. Lineales}}
+\DeclareOption{fmm412}{\newcommand{\code}{FMM412}\newcommand{\name}{Cálculo Avanzado}}
+
+\DeclareOption{fmmp002}{\newcommand{\code}{FMMP002}\newcommand{\name}{Fundamentos de Matemática}}
+\DeclareOption{fmmp003}{\newcommand{\code}{FMMP003}\newcommand{\name}{Matemática General}}
+\DeclareOption{fmmp005}{\newcommand{\code}{FMMP005}\newcommand{\name}{Matemática}}
+\DeclareOption{fmmp008}{\newcommand{\code}{FMMP008}\newcommand{\name}{Matemática para Administración}}
+\DeclareOption{fmmp009}{\newcommand{\code}{FMMP009}\newcommand{\name}{Matemáticas}}
+\DeclareOption{fmmp012}{\newcommand{\code}{FMMP012}\newcommand{\name}{Intro. a las Matemáticas}}
+\DeclareOption{fmmp020}{\newcommand{\code}{FMMP020}\newcommand{\name}{Álgebra}}
+\DeclareOption{fmmp028}{\newcommand{\code}{FMMP028}\newcommand{\name}{Aplicac. Matem. para Admin.}}
+\DeclareOption{fmmp029}{\newcommand{\code}{FMMP029}\newcommand{\name}{Matemáticas para los Negocios}}
+\DeclareOption{fmmp030}{\newcommand{\code}{FMMP030}\newcommand{\name}{Cálculo I}}
+\DeclareOption{fmmp101}{\newcommand{\code}{FMMP101}\newcommand{\name}{Elem. de Álgebra y Cálculo}}
+\DeclareOption{fmmp112}{\newcommand{\code}{FMMP112}\newcommand{\name}{Cálculo Diferencial}}
+\DeclareOption{fmmp130}{\newcommand{\code}{FMMP130}\newcommand{\name}{Cálculo II}}
+\DeclareOption{fmmp212}{\newcommand{\code}{FMMP212}\newcommand{\name}{Cálculo Integral}}
+\DeclareOption{fmmp312}{\newcommand{\code}{FMMP312}\newcommand{\name}{Sistem. y Ecuac. Diferen. Lineales}}
+\DeclareOption{fmmp315}{\newcommand{\code}{FMMP315}\newcommand{\name}{Matemática Avanzada I}}
+\DeclareOption{fmmp415}{\newcommand{\code}{FMMP415}\newcommand{\name}{Matemática Avanzada II}}
+
+
+
+
+% Opciones para Campus
+\newcommand*{\campus}{Rep\'ublica}
+\DeclareOption{repu}{\renewcommand*{\campus}{Rep\'ublica}}%
+\DeclareOption{caso}{\renewcommand*{\campus}{Casona}}%
+\DeclareOption{vina}{\renewcommand*{\campus}{Vi\˜a del Mar}}%
+\DeclareOption{conc}{\renewcommand*{\campus}{Concepci\'on}}%
+\DeclareOption{avar}{\renewcommand*{\campus}{Antonio Varas}}%
+\DeclareOption{leon}{\renewcommand*{\campus}{Los Leones}}%
+\DeclareOption{bell}{\renewcommand*{\campus}{Bellavista}}%
+
+\ProcessOptions\relax
+
+
+
+
+
+
+	
+% Macro para el header y titulo
+\pagestyle{head}
+\headrule
+\header%
+{
+\begin{minipage}{0.075\textwidth}
+\vspace{-0.07\textwidth}\hspace*{-0.14\textwidth}\includegraphics[scale=0.425]{logo_solo.eps}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+Universidad Nacional Andr\'es Bello\\
+Facultad de Ciencias Exactas \\
+Departamento de Matem\'atica 
+\end{minipage}
+}%
+{}%
+{
+\begin{minipage}{0.8\textwidth}
+\raggedleft \textbf{ \name\ - \code} \\
+Campus \campus \\
+ \fecha
+\end{minipage}
+}
+
+
+
+
+
+\newcommand{\thetitle}{
+\begin{center}
+\bf \Large{\evaluacion}\normalsize
+\end{center}
+
+\vspace{-0.5cm}
+\textbf{Tiempo: \duracion\ minutos. \hfill Solo consultas de enunciado, en voz alta y desde el puesto.}
+}
+
+
+% Finally, we'll use \endinput to indicate that LaTeX can stop reading this file. LaTeX will ignore anything after this line.
+\endinput
