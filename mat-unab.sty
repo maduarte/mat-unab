@@ -154,7 +154,7 @@
 
 \newcommand{\no}{$^\circ$}
 \newcommand{\celsius}{\no{C}}
-\newcommand{\otrapagina}{\vfill{\it Continúa al reverso}}
+\newcommand{\otrapagina}{\vfill{\it Continúa al reverso}\newpage}
 
 
 \newcommand{\notaeximicion}{4,95}
@@ -166,7 +166,7 @@
 
 %%%%%%%%%%%% margenes y estilo
 \topmargin=0cm  	% MacBook
-\oddsidemargin=-0.5cm \evensidemargin=-0.5cm \textwidth=17.5cm \textheight=22cm 
+\oddsidemargin=-0.5cm \evensidemargin=-0.5cm \textwidth=17.5cm \textheight=21.5cm 
 \parindent 0em
 \parskip 2ex
 \renewcommand{\baselinestretch}{1,1}
@@ -265,9 +265,9 @@
 
 	
 % Macro para el header y titulo
-\pagestyle{head}
+\pagestyle{headandfoot}
 \headrule
-\header%
+\firstpageheader%
 {
 \begin{minipage}{0.075\textwidth}
 \vspace{-0.07\textwidth}\hspace*{-0.14\textwidth}\includegraphics[scale=0.425]{logo_solo.eps}
@@ -286,7 +286,8 @@ Campus \campus \\
  \fecha
 \end{minipage}
 }
-
+\runningheader{\bf \evaluacion}{}{\textbf{ \name\ - \code}}
+\cfoot{{\thepage\ de \numpages}}
 
 
 
