@@ -10,7 +10,7 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % Provide the name of your page, the date it was last updated, and a comment about what it's used for
-\ProvidesPackage{mat-unab}[2017/08/25]
+\ProvidesPackage{mat-unab}[2017/08/30]
 
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
@@ -185,14 +185,16 @@
 \backgroundsetup{contents={}}
 %Opcion para borrador
 \DeclareOption{borrador}{ 
-\backgroundsetup{
-  position = current page.west,
-  angle = 90,
-  vshift = -4mm,
-%    opacity=1,
-  scale=4,
-  contents=Borrador
-}}
+\backgroundsetup{contents={Borrador},color=red!25}
+%\backgroundsetup{
+%  position = current page.west,
+%  angle = 90,
+%  vshift = -4mm,
+%%    opacity=1,
+%  scale=4,
+%  contents=Borrador
+%}
+}
 %Opciones para Codigos y Cursos
 \DeclareOption{fms071}{\newcommand{\code}{FMS071}\newcommand{\name}{Estad\'istica Descriptiva}}
 \DeclareOption{fms072}{\newcommand{\code}{FMS072}\newcommand{\name}{Estad\'istica I}}
