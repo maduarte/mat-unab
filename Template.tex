@@ -1,4 +1,6 @@
 \documentclass[11pt,spanish]{exam}
+%Comentar la siguiente linea para esconder Soluciones
+\printanswers
 
 %codigo del curso en minusculas (fmm001)
 %campus con primeras 4 letras (repu,caso,vina,conc,avar,leon,bell)
@@ -49,47 +51,149 @@ Glicemia (mg/dL) & N\no\ de Pacientes \\
 \part[5] ¿Qué porcentaje de los pacientes está bajo el valor de la media?
 \end{parts}
 
-\bigskip
+
+
+\question[30]
+Un complejo sistema de ingeniería posee un interruptor automático
+de seguridad, que debe activarse en condiciones
+de falla del sistema. Suponga que la probabilidad de que
+el interruptor se active, dado que hay una falla es $0,99$ y
+que la probabilidad de no activarse, dado que no hay falla
+también es $0,99$. Finalmente, suponga que la probabilidad
+de que el sistema falle es $0,001$. Calcule la probabilidad de
+que el sistema haya fallado, sabiendo que el interruptor de
+seguridad se activó.
+
 
 \question
-Suponga que se quiere establecer un paralelo entre el pH y la actividad específica de cierta enzima. Se dispone de los siguientes datos, obtenidos de una muestra:
-
+Un asunto de importancia médica es determinar si trotar conduce a una reducción del pulso cardiaco. Para probar esta hipótesis, 8 voluntarios sedentarios acordaron iniciar un programa de entrenamiento en trote por 1 mes. Al finalizar el mes se determinaron los nuevos valores de sus pulsos, y se compararon con los valores que tenían anteriormente. Si los datos son los siguientes, 
 \begin{center}
-\begin{tabular}{c|ccccccc}
-\toprule
-pH & 6 & 6,3 & 7 & 7,2 & 7,4 & 8 & 8,5 \\
-\hline
-\specialcell{Actividad específica \\ (U/mg de proteína)} & 0,95 & 0,92 & 0,88 & 0,85 & 0,78 & 0,7 & 0,64 \\
-\bottomrule
-\end{tabular}\\[2ex]
-
-\begin{tabular}{cc}
-\toprule
-pH ($X$) & Actividad Específica ($Y$) \\
-\midrule
-Media = $7,2$ & Media = $0,81714$ \\
-Desviación estándar = $0,88129$ & Desviación estándar = $0,11528$ \\
-Rango de medición: $6$ a $8,5$ & Rango de medición: $0,64$ a $0,95$ \\
-\bottomrule
+\begin{tabular}{l|cccc cccc | c c}
+Sujeto & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & $\overline x$ & $S$\\ \hline
+Pulso inicial & 74 & 86 & 98 & 102 & 78 & 84 & 79 & 70 & 83,875 & 11,21781 \\
+Pulso final & 69 & 85 & 90 & 105 & 71 & 80 & 69 & 74 & 80,375 & 12,58046
 \end{tabular}
 \end{center}
-$$
-\sum_{i=1}^7 x_i^2 = 367,54 \qquad  \sum_{i=1}^7 y_i^2 = 4,7538 \qquad \sum_{i=1}^7 x_iy_i =  40,588
-$$
 
-
-\otrapagina
-\begin{center}
-\includegraphics[width=0.9\textwidth]{s1pic01}
-\end{center}
+Use una significancia $\alpha=5\%$.
 \begin{parts}
-\part[10] A simple vista, se aprecia que a mayor pH, la actividad tiende a disminuir. ¿Podría afirmar dicha asociación entre ambas variables? Justifique su respuesta con la medida descriptiva adecuada.
+\part[15] ¿Podemos concluir que trotar ha tenido un efecto reductor sobre el pulso cardíaco?
+\begin{solution}
+Tal como ha sido planteado el enunciado, la tabla anterior presenta dos muestras pareadas, por lo tanto hacemos el test correspondiente para las diferencias Antes $-$ Después: \pts{1}
+\begin{center}
+\begin{tabular}{l|cccc cccc | c c}
+Sujeto & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & $\overline d$ & $S_d$\\ \hline
+diferencia & 5 & 1 & 8 & -3 & 7 & 4 & 10 & -4 & 3,5 &  5,09902.  \\
+\end{tabular}
+\end{center}
+\hfill \pts{2}
 
-\part[5] ¿Cuál es la magnitud de dicha asociación?
+Queremos hacer el test:
+\begin{align*}
+H_0 : \mu_d = 0 \\
+H_1 : \mu_d > 0
+\end{align*}\hfill \pts{3}
 
-\part[5] Calcule e interprete el valor del estimador de la pendiente, para un modelo de asociación lineal entre las variables $X=$ pH e $Y=$ Actividad Específica.
+El estadístico a usar es 
+\begin{align*}
+Z_0 = \frac{\overline d }{S_d / \sqrt{n}} \sim t_{n-1}.
+\end{align*}
+\hfill \pts{2}
 
-\part[10] Estime la Actividad específica cuando el pH es de 7,8. ¿Qué tan buena es la estimación entregada?
+La región de rechazo está achurada en la figura:
+
+\begin{pspicture}[showgrid=false](-7.5,-1)(2.5,3.5)
+    \psset{yunit=3cm,xunit=2}
+%    \pscustom[linestyle=none,fillcolor=gray,fillstyle=solid]{%
+%      \psline(-1,0.125)(-1,0)(-1.75,0)
+%      \psGauss{-1.75}{-1}
+%    }
+    \pscustom[linestyle=none,fillcolor=gray,fillstyle=solid]{%
+      \psline(0.6,0)(0.6,0.4)
+      \psGauss{0.6}{1.9}
+    }
+    \psaxes[labels=none,ticks=none]{->}(0,0)(-2,0)(2,1.05)
+    \uput[r](0,0.95){$t_7$}
+    \uput[r](0,0.35){95\%}
+    \uput[r](1,0.25){5\%}
+    \uput[d](0.6,0){$t_{7; 0,95}$}
+    \psGauss[sigma=0.5]{-1.75}{1.75}
+  \end{pspicture}
+
+De la tabla $t$ de Student para 7 grados de libertad, hallamos $t_{7 ; 0,95} = 1,895$, por lo rechazamos $H_0$ si $t_{\rm obs} > t_{7 ; 0,95} = 1,895$. \hfill \pts{3}
+
+
+Calculemos el valor observado del estadístico:
+\begin{align*}
+t_{\rm obs} = \frac{\overline d }{S_d / \sqrt{n}}  = \frac{3,5 }{ 5,08802 / \sqrt{8}}  = 1,94145.
+\end{align*}\hfill \pts{1}
+
+
+Como $t_{\rm obs} = 1,94145 > t_{7 ; 0,95} = 1,895$, el valor observado  está en la región de rechazo, por lo que se rechaza $H_0$. Concluimos que hay suficiente evidencia estadística para afirmar que hubo un descenso en el pulso cardíaco medio.\hfill \pts{3}
+
+\end{solution}
+
+
+%\bigskip
+
+\part[15] Imagine que a la tabla anterior le cambiamos ``Pulso inicial'' por ``Sedentarios'', y ``Pulso final'' por ``Trotadores'', de manera que la nueva tabla exprese el pulso de 16 personas distintas, 8 de ellos sedentarios, y 8 de ellos trotadores, sin relación entre ellos. ¿Se puede concluir que los trotadores tienen menor pulso que los sedentarios? \emph{Suponga varianzas iguales.}
+\begin{solution}
+Las condiciones de este enunciado indican que debemos considerar la tabla anterior como dos muestras independientes. Sea $X_S$ el pulso de un sedentario y $X_T$ el de un trotador, los cuales asumimos distribuidos de manera normal.
+
+Según enunciado, asumimos $\sigma_S^2=\sigma_T^2$. Haremos un test para comparar las medias de $X_S$ y $X_T$: \hfill \pts{2}
+
+\begin{align*}
+H_0 &\colon \mu_S = \mu_T \\
+H_1 &\colon \mu_S> \mu_T
+\end{align*}
+\hfill \pts{3}
+
+Como cada muestra tiene tamaño $n=8$, el estadístico a usar es 
+\begin{align*}
+\frac{\overline x_S - \overline x_T}{S_p \sqrt{\frac18 + \frac18} } \sim t_{14}.
+\end{align*}
+\hfill \pts{3}
+
+
+La región de rechazo está achurada en la figura:
+
+\begin{pspicture}[showgrid=false](-7.5,-1)(2.5,3.5)
+    \psset{yunit=2.5cm,xunit=2}
+%    \pscustom[linestyle=none,fillcolor=gray,fillstyle=solid]{%
+%      \psline(-1,0.125)(-1,0)(-1.75,0)
+%      \psGauss{-1.75}{-1}
+%    }
+    \pscustom[linestyle=none,fillcolor=gray,fillstyle=solid]{%
+      \psline(0.6,0)(0.6,0.4)
+      \psGauss{0.6}{1.9}
+    }
+    \psaxes[labels=none,ticks=none]{->}(0,0)(-2,0)(2,1.05)
+    \uput[r](0,0.95){$t_{14}$}
+    \uput[r](0,0.35){95\%}
+    \uput[r](1,0.25){5\%}
+    \uput[d](0.6,0){$t_{14;0,95}$}
+    \psGauss[sigma=0.5]{-1.75}{1.75}
+  \end{pspicture}
+
+De la tabla Normal, hallamos $t_{14;0,95} = 1,761$. Por lo que rechazaremos $H_0$ si es que $t_{\rm obs} > 1,761$.\hfill \pts{3}
+
+
+Calculemos el valor observado del estadístico:
+\begin{align*}
+S_p^2 = \frac{7\cdot 11,21781^2 + 7\cdot 12,58046^2 }{14} &\To S_p = 11,91862.\\
+t_{\rm obs} =  \frac{\overline x_S - \overline x_T}{S_p \sqrt{\frac18 + \frac18} } &= 0,58732.
+\end{align*}\hfill \pts{1}
+
+
+Como $t_{\rm obs} = 0,58732 < t_{14;0,95} = 1,761$, el valor del observado no está en la región de rechazo, por lo que no hay suficiente evidencia estadística para rechazar $H_0$. Concluimos que no hay evidencia para asegurar que el pulso de trotadores es menor que el de sedentarios, con una confianza del 95\%.\hfill \pts{3}
+
+\end{solution}
+
+%\part[5] Comente las similitudes y diferencias de sus conclusiones entre (a) y (b). 
+%\begin{solution}
+%Los resultados son dispares entre las dos situaciones, a pesar de que numéricamente los datos coinciden. La diferencia fundamental es que en el caso (a) hemos asumido que los datos representan muestras pareadas, pero en (b) representan muestras independientes. Es así que los datos representan situaciones  distintas en cada caso, por lo que no hay razón para esperar que las conclusiones coincidan.
+%\end{solution}
+
 \end{parts}
 
 
