@@ -10,7 +10,7 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % Provide the name of your page, the date it was last updated, and a comment about what it's used for
-\ProvidesPackage{mat-unab}[2017/08/30]
+\ProvidesPackage{mat-unab}[2017/08/31]
 
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
@@ -181,19 +181,14 @@
 
 \newcommand{\pts}[1]{\text{\textcolor{red}{(#1 pts)}}}
 
-\usepackage{background}
-\backgroundsetup{contents={}}
-%Opcion para borrador
+\usepackage{draftwatermark}
+\SetWatermarkText{}
+
 \DeclareOption{borrador}{ 
-\backgroundsetup{contents={Borrador},color=red!25}
-%\backgroundsetup{
-%  position = current page.west,
-%  angle = 90,
-%  vshift = -4mm,
-%%    opacity=1,
-%  scale=4,
-%  contents=Borrador
-%}
+	\SetWatermarkText{Borrador}
+	\SetWatermarkColor{red!25}
+	\SetWatermarkAngle{52,3}
+	\SetWatermarkScale{4}
 }
 %Opciones para Codigos y Cursos
 \DeclareOption{fms071}{\newcommand{\code}{FMS071}\newcommand{\name}{Estad\'istica Descriptiva}}

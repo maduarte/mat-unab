@@ -16,7 +16,7 @@
 \begin{document}
 
 %% Genera el titulo de la prueba, tiempo, y consultas
-\thetitle
+\thetitle 
 
 %% Activar \small en caso de que se exceda una pagina
 %\small
@@ -100,26 +100,6 @@ Z_0 = \frac{\overline d }{S_d / \sqrt{n}} \sim t_{n-1}.
 \end{align*}
 \hfill \pts{2}
 
-La región de rechazo está achurada en la figura:
-
-\begin{pspicture}[showgrid=false](-7.5,-1)(2.5,3.5)
-    \psset{yunit=3cm,xunit=2}
-%    \pscustom[linestyle=none,fillcolor=gray,fillstyle=solid]{%
-%      \psline(-1,0.125)(-1,0)(-1.75,0)
-%      \psGauss{-1.75}{-1}
-%    }
-    \pscustom[linestyle=none,fillcolor=gray,fillstyle=solid]{%
-      \psline(0.6,0)(0.6,0.4)
-      \psGauss{0.6}{1.9}
-    }
-    \psaxes[labels=none,ticks=none]{->}(0,0)(-2,0)(2,1.05)
-    \uput[r](0,0.95){$t_7$}
-    \uput[r](0,0.35){95\%}
-    \uput[r](1,0.25){5\%}
-    \uput[d](0.6,0){$t_{7; 0,95}$}
-    \psGauss[sigma=0.5]{-1.75}{1.75}
-  \end{pspicture}
-
 De la tabla $t$ de Student para 7 grados de libertad, hallamos $t_{7 ; 0,95} = 1,895$, por lo rechazamos $H_0$ si $t_{\rm obs} > t_{7 ; 0,95} = 1,895$. \hfill \pts{3}
 
 
@@ -137,62 +117,11 @@ Como $t_{\rm obs} = 1,94145 > t_{7 ; 0,95} = 1,895$, el valor observado  está e
 %\bigskip
 
 \part[15] Imagine que a la tabla anterior le cambiamos ``Pulso inicial'' por ``Sedentarios'', y ``Pulso final'' por ``Trotadores'', de manera que la nueva tabla exprese el pulso de 16 personas distintas, 8 de ellos sedentarios, y 8 de ellos trotadores, sin relación entre ellos. ¿Se puede concluir que los trotadores tienen menor pulso que los sedentarios? \emph{Suponga varianzas iguales.}
+
+\part[5] Comente las similitudes y diferencias de sus conclusiones entre (a) y (b). 
 \begin{solution}
-Las condiciones de este enunciado indican que debemos considerar la tabla anterior como dos muestras independientes. Sea $X_S$ el pulso de un sedentario y $X_T$ el de un trotador, los cuales asumimos distribuidos de manera normal.
-
-Según enunciado, asumimos $\sigma_S^2=\sigma_T^2$. Haremos un test para comparar las medias de $X_S$ y $X_T$: \hfill \pts{2}
-
-\begin{align*}
-H_0 &\colon \mu_S = \mu_T \\
-H_1 &\colon \mu_S> \mu_T
-\end{align*}
-\hfill \pts{3}
-
-Como cada muestra tiene tamaño $n=8$, el estadístico a usar es 
-\begin{align*}
-\frac{\overline x_S - \overline x_T}{S_p \sqrt{\frac18 + \frac18} } \sim t_{14}.
-\end{align*}
-\hfill \pts{3}
-
-
-La región de rechazo está achurada en la figura:
-
-\begin{pspicture}[showgrid=false](-7.5,-1)(2.5,3.5)
-    \psset{yunit=2.5cm,xunit=2}
-%    \pscustom[linestyle=none,fillcolor=gray,fillstyle=solid]{%
-%      \psline(-1,0.125)(-1,0)(-1.75,0)
-%      \psGauss{-1.75}{-1}
-%    }
-    \pscustom[linestyle=none,fillcolor=gray,fillstyle=solid]{%
-      \psline(0.6,0)(0.6,0.4)
-      \psGauss{0.6}{1.9}
-    }
-    \psaxes[labels=none,ticks=none]{->}(0,0)(-2,0)(2,1.05)
-    \uput[r](0,0.95){$t_{14}$}
-    \uput[r](0,0.35){95\%}
-    \uput[r](1,0.25){5\%}
-    \uput[d](0.6,0){$t_{14;0,95}$}
-    \psGauss[sigma=0.5]{-1.75}{1.75}
-  \end{pspicture}
-
-De la tabla Normal, hallamos $t_{14;0,95} = 1,761$. Por lo que rechazaremos $H_0$ si es que $t_{\rm obs} > 1,761$.\hfill \pts{3}
-
-
-Calculemos el valor observado del estadístico:
-\begin{align*}
-S_p^2 = \frac{7\cdot 11,21781^2 + 7\cdot 12,58046^2 }{14} &\To S_p = 11,91862.\\
-t_{\rm obs} =  \frac{\overline x_S - \overline x_T}{S_p \sqrt{\frac18 + \frac18} } &= 0,58732.
-\end{align*}\hfill \pts{1}
-
-
-Como $t_{\rm obs} = 0,58732 < t_{14;0,95} = 1,761$, el valor del observado no está en la región de rechazo, por lo que no hay suficiente evidencia estadística para rechazar $H_0$. Concluimos que no hay evidencia para asegurar que el pulso de trotadores es menor que el de sedentarios, con una confianza del 95\%.\hfill \pts{3}
-
+Los resultados son dispares entre las dos situaciones, pese a que numéricamente los datos coinciden. La diferencia radica en que en  (a) se asume que los datos representan muestras pareadas, pero en (b) representan muestras independientes. Como los casos representan situaciones  distintas, no hay razón para esperar que las conclusiones coincidan.
 \end{solution}
-
-%\part[5] Comente las similitudes y diferencias de sus conclusiones entre (a) y (b). 
-%\begin{solution}
-%Los resultados son dispares entre las dos situaciones, a pesar de que numéricamente los datos coinciden. La diferencia fundamental es que en el caso (a) hemos asumido que los datos representan muestras pareadas, pero en (b) representan muestras independientes. Es así que los datos representan situaciones  distintas en cada caso, por lo que no hay razón para esperar que las conclusiones coincidan.
-%\end{solution}
 
 \end{parts}
 
