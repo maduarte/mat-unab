@@ -29,4 +29,5 @@ pauta = opcion para agregar "Pauta" al título y activar \printanswers de clase 
 4) Cambios recientes
 
  - Es posible compilar con pdflatex además de latex.
+ - Se agrega la opción 'pauta' para mostrar soluciones y adaptar título.
 
