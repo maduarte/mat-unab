@@ -11,6 +11,7 @@ Paquetes LaTeX del Dpto Matemáticas UNAB
 
 borrador = es una opción que puede ser usada para agregar marca de agua a la izquierda de cada pagina, para evitar que se envíe una version preliminar a impresión. Basta deshabilitarla para tener la version final. No es anulada por la opción "final".
 
+pauta = opcion para agregar "Pauta" al título y activar \printanswers de clase exam.cls
 
 3) Algunos paquetes no muy comunes que están cargados son:
 

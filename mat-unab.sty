@@ -159,10 +159,6 @@
 
 \newcommand{\notaeximicion}{4,95}
 
-\newcommand{\pauta}{}
-\ifprintanswers
-	\renewcommand{\pauta}{Pauta\ }%
-\fi
 
 %%%%%%%%%%%% margenes y estilo
 \topmargin=0cm  	% MacBook
@@ -253,6 +249,10 @@
 \DeclareOption{leon}{\renewcommand*{\campus}{Los Leones}}%
 \DeclareOption{bell}{\renewcommand*{\campus}{Bellavista}}%
 
+\newcommand*{\pauta}{}
+\DeclareOption{pauta}{\renewcommand*{\pauta}{Pauta\ }
+	\printanswers
+}
 \ProcessOptions\relax
 
 
@@ -291,7 +291,7 @@ Campus \campus \\
 
 \newcommand{\thetitle}{
 \begin{center}
-\bf \Large{\evaluacion}\normalsize
+\bf \Large{\pauta\evaluacion}\normalsize
 \end{center}
 
 \vspace{-0.5cm}
