@@ -39,6 +39,7 @@
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{ragged2e}
+\usepackage[left=1.5cm,right=1.5cm,top=3cm,bottom=2cm]{geometry}
 %% Thick line for tabular
 \makeatletter
 \newcommand{\thickhline}{%
@@ -160,8 +161,8 @@
 
 
 %%%%%%%%%%%% margenes y estilo
-\topmargin=0cm  	% MacBook
-\oddsidemargin=-0.5cm \evensidemargin=-0.5cm \textwidth=17.5cm \textheight=21.5cm 
+%\topmargin=0cm  	% MacBook
+%\oddsidemargin=-0.5cm \evensidemargin=-0.5cm \textwidth=17.5cm \textheight=21.5cm 
 \parindent 0em
 \parskip 2ex
 \renewcommand{\baselinestretch}{1,1}
@@ -236,6 +237,8 @@
 \DeclareOption{fmmp415}{\newcommand{\code}{FMMP415}\newcommand{\name}{Matemática Avanzada II}}
 
 
+\DeclareOption{letterpaper}{\geometry{letterpaper}}
+\DeclareOption{oficiopaper}{\geometry{papersize={8in,13in}}}
 
 
 % Opciones para Campus
