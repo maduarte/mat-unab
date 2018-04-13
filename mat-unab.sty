@@ -39,8 +39,7 @@
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{ragged2e}
-\usepackage{slashbox}
-
+\usepackage[left=1.5cm,right=1.5cm,top=3cm,bottom=2cm]{geometry}
 %% Thick line for tabular
 \makeatletter
 \newcommand{\thickhline}{%
@@ -162,8 +161,8 @@
 
 
 %%%%%%%%%%%% margenes y estilo
-\topmargin=0cm  	% MacBook
-\oddsidemargin=-0.5cm \evensidemargin=-0.5cm \textwidth=17.5cm \textheight=21.5cm 
+%\topmargin=0cm  	% MacBook
+%\oddsidemargin=-0.5cm \evensidemargin=-0.5cm \textwidth=17.5cm \textheight=21.5cm 
 \parindent 0em
 \parskip 2ex
 \renewcommand{\baselinestretch}{1,1}
@@ -188,56 +187,61 @@
 	\SetWatermarkScale{4}
 }
 %Opciones para Codigos y Cursos
-\DeclareOption{fms071}{\newcommand{\code}{FMS071}\newcommand{\name}{Estad\'istica Descriptiva}}
-\DeclareOption{fms072}{\newcommand{\code}{FMS072}\newcommand{\name}{Estad\'istica I}}
-\DeclareOption{fms073}{\newcommand{\code}{FMS073}\newcommand{\name}{Estad\'istica II}}
-\DeclareOption{fms171}{\newcommand{\code}{FMS171}\newcommand{\name}{Estad\'istica Aplicada}}
-\DeclareOption{fms175}{\newcommand{\code}{FMS175}\newcommand{\name}{Probabilidades y Estad\'istica}}
-\DeclareOption{fms176}{\newcommand{\code}{FMS176}\newcommand{\name}{Probabilidades y Estad\'istica}}
+\newcommand{\codigocurso}{FMMXXX}
+\newcommand{\curso}{Curso de Matem\'aticas}
 
-\DeclareOption{fmsp173}{\newcommand{\code}{FMSP173}\newcommand{\name}{Estadística para Administración}}
-\DeclareOption{fmsp174}{\newcommand{\code}{FMSP174}\newcommand{\name}{Estadística}}
-\DeclareOption{fmsp176}{\newcommand{\code}{FMSP176}\newcommand{\name}{Probabilidades y Estad\'istica}}
+\DeclareOption{fms071}{\renewcommand{\codigocurso}{FMS071}\renewcommand{\curso}{Estad\'istica Descriptiva}}
+\DeclareOption{fms072}{\renewcommand{\codigocurso}{FMS072}\renewcommand{\curso}{Estad\'istica I}}
+\DeclareOption{fms073}{\renewcommand{\codigocurso}{FMS073}\renewcommand{\curso}{Estad\'istica II}}
+\DeclareOption{fms171}{\renewcommand{\codigocurso}{FMS171}\renewcommand{\curso}{Estad\'istica Aplicada}}
+\DeclareOption{fms175}{\renewcommand{\codigocurso}{FMS175}\renewcommand{\curso}{Probabilidades y Estad\'istica}}
+\DeclareOption{fms176}{\renewcommand{\codigocurso}{FMS176}\renewcommand{\curso}{Probabilidades y Estad\'istica}}
 
-\DeclareOption{fmm004}{\newcommand{\code}{FMM004}\newcommand{\name}{Matemática}}
-\DeclareOption{fmm007}{\newcommand{\code}{FMM007}\newcommand{\name}{Matemática Avanzada }}
-\DeclareOption{fmm010}{\newcommand{\code}{FMM010}\newcommand{\name}{Álgebra}}
-\DeclareOption{fmm012}{\newcommand{\code}{FMM012}\newcommand{\name}{Intro. a las Matemáticas}}
-\DeclareOption{fmm013}{\newcommand{\code}{FMM013}\newcommand{\name}{Álgebra}}
-\DeclareOption{fmm032}{\newcommand{\code}{FMM032}\newcommand{\name}{Elem. de Álgebra y Cálculo elem.}}
-\DeclareOption{fmm033}{\newcommand{\code}{FMM033}\newcommand{\name}{Cálculo I}}
+\DeclareOption{fmsp173}{\renewcommand{\codigocurso}{FMSP173}\renewcommand{\curso}{Estadística para Administración}}
+\DeclareOption{fmsp174}{\renewcommand{\codigocurso}{FMSP174}\renewcommand{\curso}{Estadística}}
+\DeclareOption{fmsp176}{\renewcommand{\codigocurso}{FMSP176}\renewcommand{\curso}{Probabilidades y Estad\'istica}}
 
-\DeclareOption{fmm112}{\newcommand{\code}{FMM112}\newcommand{\name}{Cálculo Diferencial}}
-\DeclareOption{fmm113}{\newcommand{\code}{FMM113}\newcommand{\name}{\'Algebra Lineal}}
-\DeclareOption{fmm132}{\newcommand{\code}{FMM132}\newcommand{\name}{Cálculo Avanzado}}
-\DeclareOption{fmm133}{\newcommand{\code}{FMM133}\newcommand{\name}{Cálculo II}}
-\DeclareOption{fmm134}{\newcommand{\code}{FMM134}\newcommand{\name}{Cálculo Aplicado}}
-\DeclareOption{fmm212}{\newcommand{\code}{FMM212}\newcommand{\name}{Cálculo Integral}}
-\DeclareOption{fmm235}{\newcommand{\code}{FMM235}\newcommand{\name}{Cálculo en Varias Variables}}
-\DeclareOption{fmm251}{\newcommand{\code}{FMM251}\newcommand{\name}{Intro. a las Ecuaciones Diferenciales}}
-\DeclareOption{fmm254}{\newcommand{\code}{FMM254}\newcommand{\name}{Ecuaciones Diferenciales}}
-\DeclareOption{fmm312}{\newcommand{\code}{FMM312}\newcommand{\name}{Sistem. y Ecuac. Diferen. Lineales}}
-\DeclareOption{fmm412}{\newcommand{\code}{FMM412}\newcommand{\name}{Cálculo Avanzado}}
+\DeclareOption{fmm004}{\renewcommand{\codigocurso}{FMM004}\renewcommand{\curso}{Matemática}}
+\DeclareOption{fmm007}{\renewcommand{\codigocurso}{FMM007}\renewcommand{\curso}{Matemática Avanzada }}
+\DeclareOption{fmm010}{\renewcommand{\codigocurso}{FMM010}\renewcommand{\curso}{Álgebra}}
+\DeclareOption{fmm012}{\renewcommand{\codigocurso}{FMM012}\renewcommand{\curso}{Intro. a las Matemáticas}}
+\DeclareOption{fmm013}{\renewcommand{\codigocurso}{FMM013}\renewcommand{\curso}{Álgebra}}
+\DeclareOption{fmm032}{\renewcommand{\codigocurso}{FMM032}\renewcommand{\curso}{Elem. de Álgebra y Cálculo elem.}}
+\DeclareOption{fmm033}{\renewcommand{\codigocurso}{FMM033}\renewcommand{\curso}{Cálculo I}}
 
-\DeclareOption{fmmp002}{\newcommand{\code}{FMMP002}\newcommand{\name}{Fundamentos de Matemática}}
-\DeclareOption{fmmp003}{\newcommand{\code}{FMMP003}\newcommand{\name}{Matemática General}}
-\DeclareOption{fmmp005}{\newcommand{\code}{FMMP005}\newcommand{\name}{Matemática}}
-\DeclareOption{fmmp008}{\newcommand{\code}{FMMP008}\newcommand{\name}{Matemática para Administración}}
-\DeclareOption{fmmp009}{\newcommand{\code}{FMMP009}\newcommand{\name}{Matemáticas}}
-\DeclareOption{fmmp012}{\newcommand{\code}{FMMP012}\newcommand{\name}{Intro. a las Matemáticas}}
-\DeclareOption{fmmp020}{\newcommand{\code}{FMMP020}\newcommand{\name}{Álgebra}}
-\DeclareOption{fmmp028}{\newcommand{\code}{FMMP028}\newcommand{\name}{Aplicac. Matem. para Admin.}}
-\DeclareOption{fmmp029}{\newcommand{\code}{FMMP029}\newcommand{\name}{Matemáticas para los Negocios}}
-\DeclareOption{fmmp030}{\newcommand{\code}{FMMP030}\newcommand{\name}{Cálculo I}}
-\DeclareOption{fmmp101}{\newcommand{\code}{FMMP101}\newcommand{\name}{Elem. de Álgebra y Cálculo}}
-\DeclareOption{fmmp112}{\newcommand{\code}{FMMP112}\newcommand{\name}{Cálculo Diferencial}}
-\DeclareOption{fmmp130}{\newcommand{\code}{FMMP130}\newcommand{\name}{Cálculo II}}
-\DeclareOption{fmmp212}{\newcommand{\code}{FMMP212}\newcommand{\name}{Cálculo Integral}}
-\DeclareOption{fmmp312}{\newcommand{\code}{FMMP312}\newcommand{\name}{Sistem. y Ecuac. Diferen. Lineales}}
-\DeclareOption{fmmp315}{\newcommand{\code}{FMMP315}\newcommand{\name}{Matemática Avanzada I}}
-\DeclareOption{fmmp415}{\newcommand{\code}{FMMP415}\newcommand{\name}{Matemática Avanzada II}}
+\DeclareOption{fmm112}{\renewcommand{\codigocurso}{FMM112}\renewcommand{\curso}{Cálculo Diferencial}}
+\DeclareOption{fmm113}{\renewcommand{\codigocurso}{FMM113}\renewcommand{\curso}{\'Algebra Lineal}}
+\DeclareOption{fmm132}{\renewcommand{\codigocurso}{FMM132}\renewcommand{\curso}{Cálculo Avanzado}}
+\DeclareOption{fmm133}{\renewcommand{\codigocurso}{FMM133}\renewcommand{\curso}{Cálculo II}}
+\DeclareOption{fmm134}{\renewcommand{\codigocurso}{FMM134}\renewcommand{\curso}{Cálculo Aplicado}}
+\DeclareOption{fmm212}{\renewcommand{\codigocurso}{FMM212}\renewcommand{\curso}{Cálculo Integral}}
+\DeclareOption{fmm235}{\renewcommand{\codigocurso}{FMM235}\renewcommand{\curso}{Cálculo en Varias Variables}}
+\DeclareOption{fmm251}{\renewcommand{\codigocurso}{FMM251}\renewcommand{\curso}{Intro. a las Ecuaciones Diferenciales}}
+\DeclareOption{fmm254}{\renewcommand{\codigocurso}{FMM254}\renewcommand{\curso}{Ecuaciones Diferenciales}}
+\DeclareOption{fmm312}{\renewcommand{\codigocurso}{FMM312}\renewcommand{\curso}{Sistem. y Ecuac. Diferen. Lineales}}
+\DeclareOption{fmm412}{\renewcommand{\codigocurso}{FMM412}\renewcommand{\curso}{Cálculo Avanzado}}
+
+\DeclareOption{fmmp002}{\renewcommand{\codigocurso}{FMMP002}\renewcommand{\curso}{Fundamentos de Matemática}}
+\DeclareOption{fmmp003}{\renewcommand{\codigocurso}{FMMP003}\renewcommand{\curso}{Matemática General}}
+\DeclareOption{fmmp005}{\renewcommand{\codigocurso}{FMMP005}\renewcommand{\curso}{Matemática}}
+\DeclareOption{fmmp008}{\renewcommand{\codigocurso}{FMMP008}\renewcommand{\curso}{Matemática para Administración}}
+\DeclareOption{fmmp009}{\renewcommand{\codigocurso}{FMMP009}\renewcommand{\curso}{Matemáticas}}
+\DeclareOption{fmmp012}{\renewcommand{\codigocurso}{FMMP012}\renewcommand{\curso}{Intro. a las Matemáticas}}
+\DeclareOption{fmmp020}{\renewcommand{\codigocurso}{FMMP020}\renewcommand{\curso}{Álgebra}}
+\DeclareOption{fmmp028}{\renewcommand{\codigocurso}{FMMP028}\renewcommand{\curso}{Aplicac. Matem. para Admin.}}
+\DeclareOption{fmmp029}{\renewcommand{\codigocurso}{FMMP029}\renewcommand{\curso}{Matemáticas para los Negocios}}
+\DeclareOption{fmmp030}{\renewcommand{\codigocurso}{FMMP030}\renewcommand{\curso}{Cálculo I}}
+\DeclareOption{fmmp101}{\renewcommand{\codigocurso}{FMMP101}\renewcommand{\curso}{Elem. de Álgebra y Cálculo}}
+\DeclareOption{fmmp112}{\renewcommand{\codigocurso}{FMMP112}\renewcommand{\curso}{Cálculo Diferencial}}
+\DeclareOption{fmmp130}{\renewcommand{\codigocurso}{FMMP130}\renewcommand{\curso}{Cálculo II}}
+\DeclareOption{fmmp212}{\renewcommand{\codigocurso}{FMMP212}\renewcommand{\curso}{Cálculo Integral}}
+\DeclareOption{fmmp312}{\renewcommand{\codigocurso}{FMMP312}\renewcommand{\curso}{Sistem. y Ecuac. Diferen. Lineales}}
+\DeclareOption{fmmp315}{\renewcommand{\codigocurso}{FMMP315}\renewcommand{\curso}{Matemática Avanzada I}}
+\DeclareOption{fmmp415}{\renewcommand{\codigocurso}{FMMP415}\renewcommand{\curso}{Matemática Avanzada II}}
 
 
+\DeclareOption{letterpaper}{\geometry{letterpaper}}
+\DeclareOption{oficiopaper}{\geometry{papersize={8in,13in}}}
 
 
 % Opciones para Campus
@@ -268,7 +272,7 @@
 \firstpageheader%
 {
 \begin{minipage}{0.075\textwidth}
-\vspace{-0.07\textwidth}\hspace*{-0.14\textwidth}\includegraphics[scale=0.425]{logo_solo}
+\vspace{-0.07\textwidth}\hspace*{-0.14\textwidth}\includegraphics[width=1.3cm]{logo_solo}
 \end{minipage}
 \begin{minipage}{0.4\textwidth}
 Universidad Nacional Andr\'es Bello\\
@@ -279,14 +283,14 @@ Departamento de Matem\'atica
 {}%
 {
 \begin{minipage}{0.8\textwidth}
-\raggedleft \textbf{ \name\ - \code} \\
+\raggedleft \textbf{ \curso\ - \codigocurso} \\
 Campus \campus \\
  \fecha
 \end{minipage}
 }
-\runningheader{\bf \evaluacion}{}{\textbf{ \name\ - \code}}
-\cfoot{{\thepage\ de \numpages}}
-
+\runningheader{\bf \evaluacion}{}{\textbf{ \curso\ - \codigocurso}}
+\cfoot{%{\thepage\ de \numpages}}
+}
 
 
 
