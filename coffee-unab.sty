@@ -26,6 +26,7 @@
 \usepackage{booktabs}
 
 \usepackage{fixltx2e}
+\usepackage{coffee4}
 
 \usepackage{graphicx}
 \usepackage{pstricks}
@@ -177,14 +178,16 @@
 
 \newcommand{\pts}[1]{\text{\textcolor{red}{(#1 pts)}}}
 
-\usepackage{draftwatermark}
-\SetWatermarkText{}
+%\usepackage{draftwatermark}
+%\SetWatermarkText{}
 
+\newcommand{\watermark}{}
 \DeclareOption{borrador}{ 
-	\SetWatermarkText{Borrador}
-	\SetWatermarkColor{red!25}
-	\SetWatermarkAngle{52,3}
-	\SetWatermarkScale{4}
+%	\SetWatermarkText{Borrador}
+%	\SetWatermarkColor{red!25}
+%	\SetWatermarkAngle{52,3}
+%	\SetWatermarkScale{4}
+	\renewcommand{\watermark}{\cofeAm{0.5}{1}{90}{40}{50}}
 }
 %Opciones para Codigos y Cursos
 \newcommand{\codigocurso}{FMMXXX}
@@ -293,6 +296,7 @@ Campus \campus \\
 
 
 
+
 \newcommand{\thetitle}{
 \begin{center}
 \bf \Large{\pauta\evaluacion}\normalsize
@@ -300,6 +304,8 @@ Campus \campus \\
 
 \vspace{-0.5cm}
 \textbf{Tiempo: \duracion\ minutos. \hfill Solo consultas de enunciado, en voz alta y desde el puesto.}
+%
+\watermark
 }
 
 
