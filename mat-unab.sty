@@ -238,7 +238,7 @@
 \DeclareOption{fmmp312}{\renewcommand{\codigocurso}{FMMP312}\renewcommand{\curso}{Sistem. y Ecuac. Diferen. Lineales}}
 \DeclareOption{fmmp315}{\renewcommand{\codigocurso}{FMMP315}\renewcommand{\curso}{Matemática Avanzada I}}
 \DeclareOption{fmmp415}{\renewcommand{\codigocurso}{FMMP415}\renewcommand{\curso}{Matemática Avanzada II}}
-
+\DeclareOption{fmmp111}{\renewcommand{\codigocurso}{FMMP111}\renewcommand{\curso}{\'Algebra}}
 
 \DeclareOption{letterpaper}{\geometry{letterpaper}}
 \DeclareOption{oficiopaper}{\geometry{papersize={8in,13in}}}
@@ -302,6 +302,13 @@ Campus \campus \\
 \textbf{Tiempo: \duracion\ minutos. \hfill Solo consultas de enunciado, en voz alta y desde el puesto.}
 }
 
+\renewcommand{\maketitle}{\thetitle}
+
+\newcommand{\mytitle}{
+\begin{center}
+\bf \Large{\pauta\evaluacion}\normalsize
+\end{center}
+}
 
 % Finally, we'll use \endinput to indicate that LaTeX can stop reading this file. LaTeX will ignore anything after this line.
 \endinput
