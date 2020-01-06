@@ -10,12 +10,11 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % Provide the name of your page, the date it was last updated, and a comment about what it's used for
-\ProvidesPackage{mat-unab}[2018/04/13]
+\ProvidesPackage{mat-unab}[2019/10/24]
 
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-
 \usepackage{latexsym}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -24,35 +23,42 @@
 \usepackage[mathcal]{euscript}
 \usepackage{bigstrut}
 \usepackage{booktabs}
-
+\usepackage{pifont}
 \usepackage{fixltx2e}
-
 \usepackage{graphicx}
-\usepackage{pstricks}
+\usepackage{pstricks,pst-node,pst-tree}
 \usepackage{pst-func,pstricks-add}
 \usepackage{pst-plot}
-
 \usepackage{enumerate}
 \usepackage{multicol}
 \usepackage{multirow}
-
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{ragged2e}
 \usepackage[left=2.3cm,right=2.3cm,top=3.5cm,bottom=3.5cm]{geometry}
-%% Thick line for tabular
-\makeatletter
-\newcommand{\thickhline}{%
-    \noalign {\ifnum 0=`}\fi \hrule height 1pt
-    \futurelet \reserved@a \@xhline
-}
 
+%%%%%%%%%%%% margenes y estilo
+%\topmargin=0cm  	% MacBook
+%\oddsidemargin=-0.5cm \evensidemargin=-0.5cm \textwidth=17.5cm \textheight=21.5cm 
+\parindent 0em
+\parskip 2ex
+\renewcommand{\baselinestretch}{1,1}
+
+%% estilo de borrador - es una opcion del paquete
+\usepackage{draftwatermark}
+\SetWatermarkText{}
+
+\DeclareOption{borrador}{ 
+	\SetWatermarkText{Borrador}
+	\SetWatermarkColor{red!25}
+	\SetWatermarkAngle{52,3}
+	\SetWatermarkScale{4}
+}
 
 %% Special centered paragraph in tabular
 %% #1 is vertical alignment, #2 is the text
 \newcommand{\specialcell}[2][c]{%
   \begin{tabular}[#1]{@{}c@{}} #2 \end{tabular}}
-
 
 % Letras Comunes
 \newcommand{\e}{\varepsilon}   %epsilon
@@ -92,25 +98,31 @@
 \newcommand{\X}{\mathcal{X}}
 \newcommand{\Y}{\mathcal{Y}}
 
+%Simbolos Matematicos comunes
 \newcommand{\supp}[1]{\mathrm{supp}\rpar{#1}}
 \newcommand{\id}{\mathrm{id}}
 \newcommand{\df}{\stackrel{\mathrm{def}}=}
-
 \newcommand{\ud}{\mathrm{d}}    %diferencial
 \newcommand{\sub}{\subseteq}    %subconjunto
 \newcommand{\dive}{\mathrm{div} } %divergence
 \newcommand{\eqd}{\ {\buildrel d \over =}\ } %equal in distribution
-
-%Simbolos Matematicos
 \newcommand{\To}{\Rightarrow}           %implica
 \newcommand{\ssi}{\Leftrightarrow}      %si y solo si
 \newcommand{\subc}{\subseteq}           %subconjuntos
 \newcommand{\tq}{\ \mid \ }             %tal que
 \providecommand{\fl}{\longrightarrow}       %flecha de limite
 \newcommand{\img}{\operatorname{Im}}    %imagen
-
-%Definici'on de Funciones
 \newcommand{\func}[3]{$#1: #2 \rightarrow #3$}  %definiendo la funcion
+\providecommand{\dd}[2] {\frac{d #1 }{d #2}}            % derivada de #1 c/r a #2
+\providecommand{\pd}[2] {\frac{\partial #1} {\partial #2}}  % derivada parcial de #1 c/r a #2
+\renewcommand{\sp}[1]{\mathrm{supp}\rpar{#1}}
+\newcommand{\dist}[1]{\mathrm{dist}\rpar{#1}}
+\newcommand{\Log}{\mathrm{Log}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newcommand{\no}{$^\circ$}
+\newcommand{\celsius}{\no{C}}
+\newcommand{\xmark}{\ding{55}}%
+
 
 %Diversos Parentesis
 \providecommand{\rpar}[1]{\left( #1 \right)}               %parentesis()
@@ -120,10 +132,7 @@
 \providecommand{\abs}[1]{\left\vert #1 \right\vert}           %valor absoluto
 \providecommand{\norm}[1]{\left\Vert #1 \right\Vert}          %norma
 
-%Derivadas
-\providecommand{\dd}[2] {\frac{d #1 }{d #2}}            % derivada de #1 c/r a #2
-\providecommand{\pd}[2] {\frac{\partial #1} {\partial #2}}  % derivada parcial de #1 c/r a #2
-
+% Estilo de teoremas y ecuaciones
 \numberwithin{equation}{section}
 
 \theoremstyle{plain}% default
@@ -144,29 +153,11 @@
 \newtheorem{case}{Case}
 
 
-\renewcommand{\sp}[1]{\mathrm{supp}\rpar{#1}}
-\newcommand{\dist}[1]{\mathrm{dist}\rpar{#1}}
-
-\newcommand{\Log}{\mathrm{Log}}
-\renewcommand{\qedsymbol}{$\blacksquare$}
-
-\newcommand{\calificacion}[1]{\fbox{\parbox{0.25\textwidth}{\smallskip{\textbf{Nota:}} \begin{rm}\\ #1 \end{rm} \bigskip} }}
-
-\newcommand{\no}{$^\circ$}
-\newcommand{\celsius}{\no{C}}
+% Algunos comandos para las pruebas y pautas
 \newcommand{\otrapagina}{\vfill{\it Continúa al reverso}\newpage}
-
-
 \newcommand{\notaeximicion}{4,95}
-
-
-%%%%%%%%%%%% margenes y estilo
-%\topmargin=0cm  	% MacBook
-%\oddsidemargin=-0.5cm \evensidemargin=-0.5cm \textwidth=17.5cm \textheight=21.5cm 
-\parindent 0em
-\parskip 2ex
-\renewcommand{\baselinestretch}{1,1}
-
+\newcommand{\instrucciones}{S\'olo preguntas de enunciado, en voz alta y desde el puesto.}
+\newcommand{\calificacion}[1]{\fbox{\parbox{0.25\textwidth}{\smallskip{\textbf{Nota:}} \begin{rm}\\ #1 \end{rm} \bigskip} }}
 \renewcommand{\solutiontitle}{\noindent\textbf{Soluci\'on:}\enspace}
 \pointpoints{pto}{pts}
 \hpword{Puntos: }
@@ -175,28 +166,136 @@
 \vtword{Total:}
 \vsword{Puntuación}
 
-\newcommand{\pts}[1]{\text{\textcolor{red}{(#1 pts)}}}
 
-\usepackage{draftwatermark}
-\SetWatermarkText{}
+%% Rubricas de puntajes
 
-\DeclareOption{borrador}{ 
-	\SetWatermarkText{Borrador}
-	\SetWatermarkColor{red!25}
-	\SetWatermarkAngle{52,3}
-	\SetWatermarkScale{4}
-}
-%Opciones para Codigos y Cursos
+\newcommand{\pts}[1]{\text{ (#1 pts) } }
+\newif\ifprintpuntos
+\newif\ifprintobjetivos
+
+\printpuntosfalse
+\printobjetivosfalse
+
+% Puntos por respuestas correctas
+\newcommand{\cbien}{blue}
+\newcommand{\puntos}[2]{%
+	\ifprintpuntos%
+		\item[ \textcolor{\cbien}{\checkmark} ] \textcolor{\cbien}{#2} \hfill\textcolor{\cbien}{\pts{#1}}%
+	\fi%
+} 
+
+% Puntos por respuestas incorrectas comunes
+\newcommand{\cerr}{red}
+\newcommand{\errado}[2]{%
+	\ifprintpuntos%
+		\item[ \textcolor{\cerr}{\xmark} ] \textcolor{\cerr}{#2} \hfill\textcolor{\cerr}{\pts{#1}}%
+	\fi%
+} 
+% Ambriente para rubrica
+\newenvironment{rubrica}%
+	{ \ifprintpuntos 
+		\textbf{\textcolor{\cbien}{\newline Distribución de puntaje} }
+	  	\begin{itemize} 
+	  	\setlength\itemsep{-0.2em} 
+	\fi }%
+	{ \ifprintpuntos \end{itemize}\fi }%
+
+
+%% Opciones para Codigos y Cursos
 \newcommand{\codigocurso}{FMMXXX}
 \newcommand{\curso}{Curso de Matem\'aticas}
+
+% Objetivos de aprendizaje del curso
+%\newcommand{\objetivoi}{Primer objetivo}
+%\newcommand{\objetivoii}{Segundo objetivo}
+%\newcommand{\objetivoiii}{Tercer objetivo}
+%\newcommand{\objetivoiv}{Cuarto objetivo}
+%\newcommand{\objetivov}{Quinto objetivo}
+%\newcommand{\objetivovi}{Sexto objetivo}
+
+
+% Para incluir objetivos de aprendizaje se deben redefinir dentro de las opciones del curso 
+% los objetivos \objetivoi, etc., y el comando 
+% \theobjetivos{num objs}%
+%  { \begin{objetivos} 
+%    1. \objetivoi & #1 \\ \addlinespace 
+%.   2. \objetivoii & #2 
+%. \end{objetivos} }
+%
+
+\makeatletter
+\let\@objetivoi\@empty
+\let\@objetivoii\@empty
+\let\@objetivoiii\@empty
+\let\@objetivoiv\@empty
+\let\@objetivov\@empty
+\let\@objetivovi\@empty
+\def\objetivoi#1{\gdef\@objetivoi{#1}}
+\def\objetivoii#1{\gdef\@objetivoii{#1}}
+\def\objetivoiii#1{\gdef\@objetivoiii{#1}}
+\def\objetivoiv#1{\gdef\@objetivoiv{#1}}
+\def\objetivov#1{\gdef\@objetivov{#1}}
+\def\objetivovi#1{\gdef\@objetivovi{#1}}
+
+\newcommand{\nobjetivos}{5}
+\newcommand{\objetivos}[6]{ 
+    \ifprintobjetivos \thetitle
+        \textbf{\Large Antecedentes de construcción} 
+    
+        En la tabla adjunta, se detalla el aprendizaje esperado y la unidad tem\'atica asociada a cada una de las preguntas que conforman la \evaluacion\ del curso de \curso, las cuales fueron declaradas en el programa y syllabus de la asignatura.
+
+        \begin{center} \begin{tabular}{c p{10cm} c}
+          \toprule
+          \textbf{Unidad} & \multicolumn{1}{c}{\textbf{Aprendizajes esperados}} & \textbf{Preguntas} \\ \midrule 
+          %
+            \ifx\@objetivoi\empty 
+            \else 1 &\@objetivoi & #1 \\ \addlinespace \fi
+            %
+            \ifx\@objetivoii\empty 
+            \else 2 & \@objetivoii & #2 \\ \addlinespace  \fi
+            %
+            \ifx\@objetivoiii\empty 
+            \else 3 & \@objetivoiii & #3 \\ \addlinespace \fi
+            %
+            \ifx\@objetivoiv\empty  
+            \else 4 & \@objetivoiv & #4 \\ \addlinespace  \fi
+            %
+            \ifx\@objetivov\empty 
+            \else 5 & \@objetivov & #5 \\ \addlinespace \fi
+            %
+            \ifx\@objetivovi\empty  
+            \else 6 & \@objetivovi & #6 \\ \addlinespace \fi 
+           \bottomrule \end{tabular} \end{center}
+
+        \newpage 
+    \fi }
+\makeatother
+
 
 \DeclareOption{fmmp131}{\renewcommand{\codigocurso}{FMMP131}\renewcommand{\curso}{C\'alculo Diferencial}}
 \DeclareOption{fms071}{\renewcommand{\codigocurso}{FMS071}\renewcommand{\curso}{Estad\'istica Descriptiva}}
 \DeclareOption{fms072}{\renewcommand{\codigocurso}{FMS072}\renewcommand{\curso}{Estad\'istica I}}
 \DeclareOption{fms073}{\renewcommand{\codigocurso}{FMS073}\renewcommand{\curso}{Estad\'istica II}}
 \DeclareOption{fms171}{\renewcommand{\codigocurso}{FMS171}\renewcommand{\curso}{Estad\'istica Aplicada}}
-\DeclareOption{fms175}{\renewcommand{\codigocurso}{FMS175}\renewcommand{\curso}{Probabilidades y Estad\'istica}}
-\DeclareOption{fms176}{\renewcommand{\codigocurso}{FMS176}\renewcommand{\curso}{Probabilidades y Estad\'istica}}
+\DeclareOption{fms175}{
+    \renewcommand{\codigocurso}{FMS175}
+    \renewcommand{\curso}{Probabilidades y Estad\'istica}
+    %
+    \renewcommand{\nobjetivos}{3}
+    \objetivoi{Analizar conjuntos de datos obtenidos de situaciones reales con el objetivo de sintetizarlos mediante descripciones num\'ericas y herramientas estad\'isticas.}
+    \objetivoii{Modelar fen\'menos y procesos aleatorios con formalidad matem\'atica con aplicaci\'on al c\'alculo de probabilidades y la toma de decisiones.}
+    \objetivoiii{Aplicar metodología estad\'istica a datos de una muestra con el fin de realizar inferencia respecto del comportamiento de las caracter\'isticas de una poblaci\'on.}
+}
+%
+\DeclareOption{fms176}{%
+    \renewcommand{\codigocurso}{FMS176}
+    \renewcommand{\curso}{Probabilidades y Estad\'istica}
+    %
+    \renewcommand{\nobjetivos}{3}
+    \objetivoi{Modelar fen\'menos y procesos aleatorios con formalidad matem\'atica con aplicaci\'on al c\'alculo de probabilidades y la toma de decisiones.}
+    \objetivoii{Analizar conjuntos de datos obtenidos de situaciones reales con el objetivo de sintetizarlos mediante descripciones num\'ericas y herramientas estad\'isticas.}
+    \objetivoiii{Aplicar metodología estad\'istica a datos de una muestra con el fin de realizar inferencia respecto del comportamiento de las caracter\'isticas de una poblaci\'on.}
+}
 
 \DeclareOption{fmsp173}{\renewcommand{\codigocurso}{FMSP173}\renewcommand{\curso}{Estadística para Administración}}
 \DeclareOption{fmsp174}{\renewcommand{\codigocurso}{FMSP174}\renewcommand{\curso}{Estadística}}
@@ -258,8 +357,21 @@
 \DeclareOption{bell}{\renewcommand*{\campus}{Bellavista}}%
 
 \newcommand*{\pauta}{}
-\DeclareOption{pauta}{\renewcommand*{\pauta}{Pauta\ }
+\DeclareOption{pautaS}{\renewcommand*{\pauta}{Pauta\ }
+	\printobjetivosfalse
 	\printanswers
+	\printpuntosfalse
+}
+\DeclareOption{pautaC}{\renewcommand*{\pauta}{Pauta\ }
+	\printobjetivosfalse
+	\printanswers
+	\printpuntostrue
+}
+
+\DeclareOption{pautaA}{\renewcommand*{\pauta}{Pauta\ }
+	\printobjetivostrue
+	\printanswers
+	\printpuntostrue
 }
 \ProcessOptions\relax
 
@@ -278,7 +390,7 @@
 \vspace{-0.07\textwidth}\hspace*{-0.14\textwidth}\includegraphics[width=1.69cm]{logo_solo}
 \end{minipage}
 \begin{minipage}{0.4\textwidth}
-Universidad Nacional Andr\'es Bello\\
+Universidad Andr\'es Bello\\
 Facultad de Ciencias Exactas \\
 Departamento de Matem\'atica 
 \end{minipage}
@@ -300,9 +412,11 @@ Campus \campus \\
 \begin{center}
 \bf \Large{\pauta\evaluacion}\normalsize
 \end{center}
+}
 
+\newcommand{\subtitle}{
 \vspace{-0.5cm}
-\textbf{Tiempo: \duracion\ minutos. \hfill Solo consultas de enunciado, en voz alta y desde el puesto.}
+\textbf{Tiempo: \duracion\ minutos. \hfill \instrucciones}
 }
 
 \renewcommand{\maketitle}{\thetitle}
